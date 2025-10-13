@@ -1,0 +1,20 @@
+
+version: 2
+
+
+sources:
+  - name: NBA_SHOOTING
+    database: SNOWFLAKE_LEARNING_DB
+    schema: NBA_SHOOTING
+    tables:
+      - name: NBA_2425
+
+     
+models:
+  - name: NBA_ShootingDisparity
+    description: "the shooting disparity of NBA players from 2023-2024 season to 2024-2025 season"
+    columns:
+      - name: Player
+        description: "the name of the NBA player"
+      - name: 3PFG%
+        description: "the 3-point percentage of the NBA player"
