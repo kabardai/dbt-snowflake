@@ -9,6 +9,8 @@ sources:
     tables:
       - name: NBA_2425
 
+      - name: NBA_2324
+
      
 models:
   - name: NBA_ShootingDisparity
