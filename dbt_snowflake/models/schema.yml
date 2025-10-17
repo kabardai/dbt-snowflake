@@ -13,10 +13,26 @@ sources:
 
      
 models:
-  - name: NBA_ShootingDisparity
-    description: "the shooting disparity of NBA players from 2023-2024 season to 2024-2025 season"
+  - name: stg_nba_2324
+    description: "Staging for 23-24 NBA shooting data"
     columns:
       - name: Player
         description: "the name of the NBA player"
-      - name: 3PFG%
-        description: "the 3-point percentage of the NBA player"
+        tests:
+          - not_null
+          - unique
+  
+  - name: stg_nba_2425
+    description: "Staging for 24-25 NBA shooting data"
+    columns:
+      - name: Player
+        description: "the name of the NBA player"
+        tests:
+          - not_null
+          - unique
+  
+  - name: int_nba_player_season_compare
+    description: "Intermediate model joining player rows across seasons for year-over-year comparison."
+
+  - name: mart_nba_3pfg_jump
+    description: "Mart: Ranks players by their 3-point shooting percentage improvement year-over-year."
