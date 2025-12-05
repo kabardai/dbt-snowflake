@@ -15,8 +15,11 @@ sources:
 models:
   - name: stg_nba_2324
     description: "Staging for 23-24 NBA shooting data"
+    tests:
+      - schema_drift:
+          compare_model: ref('stg_nba_2425')
     columns:
-      - name: Player
+      - name: player
         description: "the name of the NBA player"
         tests:
           - not_null
@@ -25,7 +28,7 @@ models:
   - name: stg_nba_2425
     description: "Staging for 24-25 NBA shooting data"
     columns:
-      - name: Player
+      - name: player
         description: "the name of the NBA player"
         tests:
           - not_null
