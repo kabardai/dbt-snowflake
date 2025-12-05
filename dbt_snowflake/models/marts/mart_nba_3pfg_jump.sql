@@ -17,8 +17,8 @@ select
     minutes_2425,
     threepfg_pct_2324,
     threepfg_pct_2425,
-    -- Calculate the jump
-    threepfg_pct_2425 - threepfg_pct_2324 as threepfg_pct_jump
+    -- Calculate the jump using reusable macro
+    {{ calculate_yoy_shooting_change('threepfg_pct_2324', 'threepfg_pct_2425') }} as threepfg_pct_jump
 from player_season_compare
 where 
     -- Ensure both seasons have non-null 3P%
